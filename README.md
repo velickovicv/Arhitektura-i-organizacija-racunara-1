@@ -1,1 +1,2 @@
-# Arhitektura-i-organizacija-racunara-1
+Reseni blanketi i poneki lab. iz AOR1
+**Ne garantujem ispravnost resenja!**
