@@ -11,7 +11,6 @@ main proc
   lea esi, niz       ; u esi cuvamo adresu prvog el. u nizu
   xor eax,eax        ; ocistimo registar gde cemo smestati rezultat (sumu)
   xor ecx,ecx        ; i=0
-  xor ebx, ebx       ; indikator da li smo naisli na nulu (0 = jos nismo)
 
   petlja:
 
