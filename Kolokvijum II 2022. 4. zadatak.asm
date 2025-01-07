@@ -3,7 +3,7 @@
 .data
    niz dd 1,4,7,0,4,2,1
    n dd 7
-   rezultat dd ?
+   rezultat dd ?      ; rezultat ne inicijalizovan
 
 .code
 main proc
