@@ -4,7 +4,7 @@
 
   mat dw 5,3,1,4   ; Prva kolona
       dw 3,4,4,8   ; Druga kolona
-	  dw 1,5,7,10  ; Treca kolona
+      dw 1,5,7,10  ; Treca kolona
 
   n dw 4
   m dw 3
@@ -25,13 +25,13 @@ main proc
 
 	movzx eax, n
 	movzx ecx, m
-    mul ecx      ; Racunamo broj elemenata u matrici kao N*M i broj smestamo u ecx
+        mul ecx      ; Racunamo broj elemenata u matrici kao N*M i broj smestamo u ecx
 	mov ecx, eax   ; Moramo da izraz N*M prebacimo u ecx, jer instrukcijom mul ne menjamo registar ecx, vec menjamo akumulator
 	
 	xor edx, edx
 	xor esi, esi 
 
-	petlja:
+petlja:
 
 	  movzx eax, word ptr mat[esi]
 	  cmp eax,edi
@@ -39,14 +39,14 @@ main proc
 
 	  inc edx         ; Ako jeste veci povecamo edx++
 
-	  dalje:
+dalje:
 
 	  add esi, 2      ; Povecamo za 2 da bi presao na sledeci element
 	  loop petlja
 
 	  mov rez, edx
 
-	  ret   ; Vracamo se u main i skidamo EIP sa stack-a
+ret   ; Vracamo se u main i skidamo EIP sa stack-a
 
 main endp
 end main
