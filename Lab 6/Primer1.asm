@@ -15,6 +15,7 @@ main proc
 
 mov ebx, 0 ; EBX = 0; Unutrasnja petlja
 mov ecx, N ; Broj prolaza kroz petlju 
+mov edi, 0 ; offset za upis suma u niz sume
 
 p1:
 
@@ -23,10 +24,11 @@ p1:
 
 P2:
 
- // Ovde mi uradi ax+=Mat[ebx+esi] 
+ mov dx, Mat[ebx+esi] ; uzmi element matrice
+ add ax, dx ; suma += element
 
  add esi, 2 ; Ovo je korak
- cmp esi, N
+ cmp esi, N // ovde trbea sa N*2 ali me mrzi da ispravim 
  jb p2
 
  add ebx,N
