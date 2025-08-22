@@ -1,0 +1,73 @@
+.386
+.model flat, c
+.data
+
+   Mat dw 1,2,3
+       dw 4,5,6
+       dw 7,8,9
+
+   N dd 3
+
+.code
+prosek proc
+
+push ebp
+mov ebp, esp
+pushfd
+pushad
+
+mov esi,[ebp+12] ; &niz
+mov ecx,[ebp+8] ; N 
+
+mov eax, 0 ; suma = 0
+
+petlja:
+
+cmp ecx, 0
+je kraj
+
+movzx edx, word ptr[esi]
+add eax, edx
+add esi, 2 ; predji na sledeci el.
+
+jmp petlja
+
+kraj;
+
+mov ecx, [ebp+8] ; ecx = n
+cdq  
+idiv ecx  ; u slucaju da imamo negativne brojeve
+mov [ebp+12], eax
+
+popad
+popfd
+pop ebp
+ret 8
+
+prosek endp 
+main proc
+
+lea esi, mat[ebx]
+push esi
+push n
+
+mov ebx, n
+dec ebx
+ecx, n
+
+p1:
+ 
+ mov esi, 0
+
+ p2:
+
+  call prosek
+  pop eax
+  cmp Mat[esi+ebx], eax
+  jg p2
+  mov mat[ebx+esi], eax
+
+  add esi, n ; korak 
+
+
+
